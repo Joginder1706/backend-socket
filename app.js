@@ -8,7 +8,8 @@ const app = express();
 
 const corsOptions = {
     origin: [
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "https://frontend-socket.onrender.com"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -22,7 +23,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: [
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "https://frontend-socket.onrender.com"
         ],
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
