@@ -9,7 +9,7 @@ const app = express();
 const corsOptions = {
     origin: [
         "http://localhost:3000",
-        "https://frontend-socket.onrender.com"
+        "https://sparkly-wisp-3523f7.netlify.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -24,7 +24,7 @@ const io = new Server(server, {
     cors: {
         origin: [
             "http://localhost:3000",
-            "https://frontend-socket.onrender.com"
+            "https://sparkly-wisp-3523f7.netlify.app"
         ],
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
