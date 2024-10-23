@@ -54,6 +54,7 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
+  console.log(`Running Node.js version: ${process.version}`);
   res.send("fansmaps");
 });
 
