@@ -16,11 +16,11 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 const corsOptions = {
   origin: [
-    "http://localhost:3000",
-    "https://frontend-socket.onrender.com",
-    "https://frontend-socket.onrender.com/messages",
-    "https://sachinkhajuria.free.nf",
-    "https://sachinkhajuria.free.nf/messages"
+    "https://www.fansmaps.com",
+    "https://fansmaps.com",
+    "https://fansmaps.com/messages/",
+    "https://www.fansmaps.com/messages/",
+    "http://localhost:3000"
   ], // List all allowed origins
   methods: ["GET", "POST", "PUT", "DELETE"], // Add any HTTP methods you want to allow
   allowedHeaders: ["Content-Type", "Authorization"], // Add any headers you expect in the requests
@@ -37,12 +37,11 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "http://localhost:3000",
-      "https://frontend-socket.onrender.com",
-      "https://frontend-socket.onrender.com/messages",
-      "https://sachinkhajuria.free.nf",
-      "https://sachinkhajuria.free.nf/messages"
-
+      "https://www.fansmaps.com",
+      "https://fansmaps.com",
+      "https://fansmaps.com/messages/",
+      "https://www.fansmaps.com/messages/",
+      "http://localhost:3000"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
