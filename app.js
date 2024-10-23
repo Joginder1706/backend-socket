@@ -18,7 +18,9 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "https://frontend-socket.onrender.com",
-    "https://frontend-socket.onrender.com/messages"
+    "https://frontend-socket.onrender.com/messages",
+    "https://sachinkhajuria.free.nf",
+    "https://sachinkhajuria.free.nf/messages"
   ], // List all allowed origins
   methods: ["GET", "POST", "PUT", "DELETE"], // Add any HTTP methods you want to allow
   allowedHeaders: ["Content-Type", "Authorization"], // Add any headers you expect in the requests
@@ -37,7 +39,9 @@ const io = new Server(server, {
     origin: [
       "http://localhost:3000",
       "https://frontend-socket.onrender.com",
-      "https://frontend-socket.onrender.com/messages"
+      "https://frontend-socket.onrender.com/messages",
+      "https://sachinkhajuria.free.nf",
+      "https://sachinkhajuria.free.nf/messages"
 
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -59,13 +63,19 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   let userId = socket.handshake.query.userId;
   socket.selectedUsersMap = new Map();
+  const users = [];
   if (userId) {
     socket.userId = userId;
     socket.selectedUsersMap.set(userId, 0);
     socket.join(userId);
     const onlineUsers = Array.from(io.sockets.sockets.values()).map(s => s.userId);
+    // for (let [id, socket] of io.of("/").sockets) {
+    //   users.push(socket.handshake.query.userId);
+    // }
     socket.emit("onlineUsers", onlineUsers);
     socket.broadcast.emit("userOnline", { userId });
+    // console.log(onlineUsers)
+
     console.log(onlineUsers)
   }
 
